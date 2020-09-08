@@ -369,9 +369,9 @@ sum_up <- function(){
   )
   ##
   
-  print("Applies factor on the experiments.")
+  print("Applies factor on the experiment variables.")
   
-  ## Applies factor on the experiments.
+  ## Applies factor on the experiment variables .
   factorized <- mutate(
     tidy_experiments
     ,
@@ -417,7 +417,7 @@ sum_up <- function(){
   )
   ##
   
-  print("Summarize.")
+  print("Summarizes.")
   
   ## Summarize.
   summary <- summarise(
