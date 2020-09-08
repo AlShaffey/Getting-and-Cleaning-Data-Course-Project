@@ -57,3 +57,48 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 The complete list of variables of each feature vector is available in 'features.txt'
+
+```````
+The above-mentioned data has been collected, processed, cleaned, and summarized with the below information:
+
+The data of the train and test has been unioned together in one data set and flagged using an "is_train" flag which is true in case of a train record.
+
+The above-mentioned features have been used to properly labels the measurement variables.
+
+For the applied processing, only the variables that hold the application of the statistical mean and standard deviation have been selected.
+
+Activities have been joined with the measurement to form one data set.
+
+Then the labels haven processed to form structured labeling that enables tidying the data based on the data stored in the initial labeling scheme.
+
+Subject identifiers have been joined with the measurement to form one data set.
+
+Then the resultant data set has been tidied in the below format ==>
+subject_id --> holds the identifier of the participant 
+
+ $ subject_id : Holds the identifier of the participant identifier.
+              : numeric
+ $ activity_id: Holds the activity identifier as specified in the original activity_labels.txt.
+              : numeric
+ $ domain     : Mapped to the domains where the experiment was done under.
+              : Factor w/ 2 levels "frequency","time": 1, 2
+ $ signal_for : Mapped to the factors that were considered for the experiment.
+              : Factor w/ 2 levels "body","gravity": 1, 2
+ $ sensor     : Mapped to the sensors used in the experiment.
+              : Factor w/ 2 levels "accelerometer","gyroscope": 1, 2
+ $ estimate   : Mapped to the statistical methods applied to the measuerments and selected for the data processing.
+              : Factor w/ 2 levels "mean","standarddeviation": 1, 2
+ $ axe        : Mapped to the 3 axes of the sensors along with NA in case of the value of the Jerk or Magnitude values that are not axial specific.
+              : Factor w/ 4 levels "NA","x","y","z": 1, 2, 3, 4
+ $ jerk       : Indicates wethere the value of the Jerk signals or not. 
+              : logical
+ $ magnitude  : Indicates whether the value of the calculated magnitude or not.
+              : logical
+ $ value      : The actual measurement value.
+              : numeric
+              
+After that, the measurement is grouped by subject_id, activity_id, domain, signal_for, sensor, estimate, axe, jerk, magnitude variables.
+
+Finally, it gets summarized by calculating the average of the measurements over the grouped variables in a variable replacing the value with the below specifications:
+ $ average    : Holds the average of the measurements over the grouped variables.
+              : numeric
